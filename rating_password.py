@@ -22,7 +22,7 @@ def has_lower_letters(password: str) -> bool:
 
 
 def has_symbols(password: str) -> bool:
-    return any(not char.isalnum() for char in password)
+    return any(not elem.isalnum() for elem in password)
 
 
 def on_ask_change(edit: urwid.Edit, text: str) -> None:
