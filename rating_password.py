@@ -22,7 +22,7 @@ def has_lower_letters(password: str) -> bool:
 
 
 def has_symbols(password: str) -> bool:
-    return any(elem in "#%" for elem in password)
+    return any(not char.isalnum() for char in password)
 
 
 def on_ask_change(edit: urwid.Edit, text: str) -> None:
@@ -33,8 +33,7 @@ def on_ask_change(edit: urwid.Edit, text: str) -> None:
         has_upper_letters(text),
         has_lower_letters(text),
         has_symbols(text),
-        ]
-    )*2
+    ])*2
     reply.set_text("Рейтинг этого пароля: %s" % rating_password)
 
 
